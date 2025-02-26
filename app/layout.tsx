@@ -233,7 +233,7 @@ export const metadata: Metadata = {
   // Add other metadata here
   title: 'NextPWA',
   description: 'Your Progressive Web App',
-  manifest: '/manifest.json',
+  manifest: '/manifest.ts',
   themeColor: '#ffffff',
   viewport: {
     width: 'device-width',
