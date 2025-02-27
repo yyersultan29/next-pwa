@@ -43,6 +43,8 @@ export const requestForToken = async () => {
       return token
     }
   } catch (error) {
+    console.log('WE DONT HAVE ACCESS SORRY')
+
     console.error('Error getting FCM token', error)
   }
 }
