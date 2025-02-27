@@ -1,6 +1,13 @@
+'use client'
 // Import the functions you need from the SDKs you need
+
 import { initializeApp } from 'firebase/app'
-import { getMessaging, getToken, onMessage } from 'firebase/messaging'
+import {
+  getMessaging,
+  getToken,
+  Messaging,
+  onMessage,
+} from 'firebase/messaging'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAZyMXEaMfUM9WnZIZwP07PcXrRQjY84EM',
@@ -13,11 +20,17 @@ const firebaseConfig = {
 }
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig)
+const app =
+  typeof window !== 'undefined' ? initializeApp(firebaseConfig) : undefined
 
-export const messaging = getMessaging(app)
+export const messaging = typeof window !== 'undefined' ? getMessaging(app) : ''
 
 export const requestForToken = async () => {
+  if (!messaging) {
+    console.log('Firebase Messaging is only available on the client.')
+    return
+  }
+
   try {
     const permission = await Notification.requestPermission()
     if (permission === 'granted') {
@@ -35,7 +48,7 @@ export const requestForToken = async () => {
 
 export const onMessageListener = () =>
   new Promise((resolve) => {
-    onMessage(messaging, (payload) => {
+    onMessage(messaging as Messaging, (payload) => {
       console.log('Message received:', payload)
       resolve(payload)
     })
