@@ -32,7 +32,7 @@ export default function Home() {
       <h1>Welcome to app</h1>
       <section>is it works ?</section>
       <button
-        className="bg-gray-100 p-3 rounded-xl"
+        className="bg-gray-100 p-3 rounded-xl text-red-500"
         onClick={() => alert('how are you!')}
       >
         Push{' '}
