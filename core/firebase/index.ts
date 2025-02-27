@@ -43,9 +43,11 @@ export const requestForToken = async () => {
       })
       console.log('FCM Token:', token)
       return token
+    } else {
+      alert('we dont have access')
     }
   } catch (error) {
-    alert('WE DONT HAVE ACCESS SORRY')
+    alert('WE catech geting FCM token')
 
     console.error('Error getting FCM token', error)
   }
