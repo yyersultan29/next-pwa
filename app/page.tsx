@@ -5,8 +5,9 @@ import { onMessageListener, requestForToken } from '../core/firebase'
 export default function Home() {
   useEffect(() => {
     const init = () => {
-      if (typeof window === 'undefined') return
       if ('serviceWorker' in navigator) {
+        alert('SERVICE WORKER WORKS')
+
         navigator?.serviceWorker
           ?.register('/firebase-messaging-sw.js')
           ?.then((registration) => {
@@ -15,6 +16,8 @@ export default function Home() {
           .catch((error) => {
             console.error('Service Worker registration failed:', error)
           })
+      } else {
+        alert('service worker doesnt work')
       }
 
       requestForToken()
@@ -23,9 +26,8 @@ export default function Home() {
         alert(`New notification: ${payload?.notification?.title}`)
       })
     }
-    if (typeof window !== 'undefined') {
-      init()
-    }
+
+    init()
   }, [])
   return (
     <div className="flex flex-col gap-2">

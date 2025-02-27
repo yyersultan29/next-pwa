@@ -20,6 +20,7 @@ firebase.initializeApp(firebaseConfig)
 const messaging = firebase.messaging()
 
 messaging.onBackgroundMessage((payload) => {
+  alert('WE GOT NEW NOTIFICATION')
   console.log('Received background message: ', payload)
 
   const notificationTitle = payload.notification?.title || 'Default Title'
