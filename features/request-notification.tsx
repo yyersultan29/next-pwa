@@ -39,8 +39,18 @@ const NotificationPrompt = () => {
         <div className="modal">
           <h2>Enable Notifications</h2>
           <p>Do you want to receive notifications?</p>
-          <button onClick={requestNotificationPermission}>Yes, Enable</button>
-          <button onClick={() => setShowModal(false)}>No, Thanks</button>
+          <button
+            className="p-3 bg-green-300 rounded-lg"
+            onClick={requestNotificationPermission}
+          >
+            Yes, Enable
+          </button>
+          <button
+            className="bg-red-500 p-3 rounded-lg"
+            onClick={() => setShowModal(false)}
+          >
+            No, Thanks
+          </button>
         </div>
       )}
     </div>
