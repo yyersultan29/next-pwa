@@ -20,9 +20,21 @@ firebase.initializeApp(firebaseConfig)
 const messaging = firebase.messaging()
 
 messaging.onBackgroundMessage((payload) => {
-  console.log('Received background message:', payload)
-  self.registration.showNotification(payload.notification.title, {
-    body: payload.notification.body,
-    icon: '/icon.png',
-  })
+  console.log('Received background message: ', payload)
+
+  const notificationTitle = payload.notification?.title || 'Default Title'
+  const notificationOptions = {
+    body: payload.notification?.body || 'No content',
+    icon: '/icon512_rounded.png', // Make sure you have this icon in public/
+    badge: '/icon512_rounded.png', // Optional: add a small icon for Android
+    data: { url: '/' }, // Open your PWA when clicked
+  }
+
+  self.registration.showNotification(notificationTitle, notificationOptions)
+})
+
+self.addEventListener('notificationclick', (event) => {
+  console.log('Notification click: ', event)
+  event.notification.close()
+  event.waitUntil(clients.openWindow(event.notification.data.url))
 })
