@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import { onMessageListener, requestForToken } from '../core/firebase'
+import NotificationPrompt from '../features/request-notification'
 
 export default function Home() {
   useEffect(() => {
@@ -39,6 +40,8 @@ export default function Home() {
       >
         Push{' '}
       </button>
+
+      <NotificationPrompt />
     </div>
   )
 }
