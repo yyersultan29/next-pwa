@@ -6,14 +6,14 @@ export default function Home() {
   useEffect(() => {
     const init = () => {
       if ('serviceWorker' in navigator) {
-        alert('SERVICE WORKER WORKS')
-
         navigator?.serviceWorker
           ?.register('/firebase-messaging-sw.js')
           ?.then((registration) => {
+            alert('service worker registerd ')
             console.log('Service Worker registered:', registration)
           })
           .catch((error) => {
+            alert('service worker not registerd ')
             console.error('Service Worker registration failed:', error)
           })
       } else {

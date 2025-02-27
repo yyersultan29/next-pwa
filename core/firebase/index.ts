@@ -26,6 +26,7 @@ const app =
 export const messaging = typeof window !== 'undefined' ? getMessaging(app) : ''
 
 export const requestForToken = async () => {
+  alert('REQUEST FOR TOKEN')
   if (!messaging) {
     alert('NO MESSAGE')
     console.log('Firebase Messaging is only available on the client.')
