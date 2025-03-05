@@ -18,14 +18,11 @@ const NotificationPrompt = () => {
           vapidKey: process.env.NEXT_PUBLIC_VAPID_KEY,
         })
         console.log('🔑 FCM Token:', token)
-        alert('Notification permission granted!')
       } else {
         console.warn('❌ Notifications denied')
-        alert('You denied notifications. Please enable them in settings.')
       }
     } catch (error) {
       console.error('⚠️ Error requesting permission:', error)
-      alert('Error enabling notifications.')
     }
   }
 

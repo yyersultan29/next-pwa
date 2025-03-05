@@ -26,9 +26,7 @@ const app =
 export const messaging = typeof window !== 'undefined' ? getMessaging(app) : ''
 
 export const requestForToken = async () => {
-  alert('REQUEST FOR TOKEN')
   if (!messaging) {
-    alert('NO MESSAGE')
     console.log('Firebase Messaging is only available on the client.')
     return
   }
@@ -36,7 +34,6 @@ export const requestForToken = async () => {
   try {
     const permission = await Notification.requestPermission()
     if (permission === 'granted') {
-      alert('WE HAVE ACCESS')
       const token = await getToken(messaging, {
         vapidKey:
           'BKQlaEPL7Q1wabWxfPbY8PvwT5Bd_snuP1dh0rX76uVJ04WiXXZV5iXuJaLUagt-jssX1xLs4DhP6OWvmngXQCM',
@@ -44,11 +41,8 @@ export const requestForToken = async () => {
       console.log('FCM Token:', token)
       return token
     } else {
-      alert('we dont have access')
     }
   } catch (error) {
-    alert('WE catech geting FCM token')
-
     console.error('Error getting FCM token', error)
   }
 }
