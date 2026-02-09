@@ -60,10 +60,7 @@ export default function Home() {
           </div>
 
           {/* Hearts decoration */}
-          <div className="absolute top-6 left-6 text-3xl opacity-60">💝</div>
-          <div className="absolute top-6 right-6 text-3xl opacity-60">💝</div>
-          <div className="absolute bottom-6 left-6 text-3xl opacity-60">🌸</div>
-          <div className="absolute bottom-6 right-6 text-3xl opacity-60">🌸</div>
+ 
 
           {/* Main text inside card */}
           <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
@@ -84,9 +81,9 @@ export default function Home() {
                 lineHeight: 1.2,
               }}
             >
-              Hello
+              Кеттік
               <br />
-              World
+              далаға
             </h1>
             
             <div
@@ -96,7 +93,7 @@ export default function Home() {
               style={{ transitionDelay: "400ms" }}
             >
               <p className="text-amber-800 text-lg tracking-[0.3em] uppercase font-light">
-                ✦ With Love ✦
+               Артына
               </p>
             </div>
 
